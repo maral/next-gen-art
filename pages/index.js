@@ -1,51 +1,52 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
+import Head from 'next/head'
+import Link from 'next/link'
 
-import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
-import Date from '../components/date';
+import Layout, { siteTitle } from 'components/layout'
+import utilStyles from 'styles/utils.module.css'
+import { getSortedProjects } from 'lib/projects'
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const projects = getSortedProjects()
   return {
     props: {
-      allPostsData,
+      projects,
     },
-  };
+  }
 }
 
-
-export default function Home({ allPostsData }) {
+export default function Home({ projects }) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hello párci!</p>
+        <p>Welcome to the home of my various generative art attempts.</p>
         <p>
-          Těšte se na big hits!{' '}
-          <a href="https://nextjs.org/learn">třeba tu :)</a>
+          Each project should contain one or more pages where you can customize
+          and generate your own picture. Have fun!
+        </p>
+        <p>
+          This web app is open source and was made in{' '}
+          <a href="https://nextjs.org/">Next.js</a>, the generative art uses{' '}
+          <a href="https://p5js.org/">p5.js</a>, if you are interested, check
+          the code on <a href="https://github.com/maral/next-gen-art">GitHub</a>
+          .
         </p>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2>Projects</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {projects.map(({ id, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
+              <Link href={`/projects/${id}`}>
                 <a>{title}</a>
               </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
             </li>
           ))}
         </ul>
       </section>
     </Layout>
-  );
+  )
 }

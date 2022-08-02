@@ -1,27 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&family=Squada+One&display=swap");
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Nunito", sans-serif;
   line-height: 1.6;
   font-size: 18px;
+  background-color: #191919;
+  color: #dfdfdf;
 }
 
 * {
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Squada One", cursive;
+  color: #ecdbba;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
 a {
-  color: #0070f3;
-  text-decoration: none;
+  color: #497d8b;
+  text-decoration: underline 0.1em rgba(73, 125, 139, 0);
+  font-weight: 600;
+  transition: all ease 0.3s;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline 0.1em;
+  text-decoration-color: rgb(81, 172, 197, 1);
+  color: #51acc5;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+ol li {
+  counter-increment: my-awesome-counter;
+}
+ol li::before {
+  content: counter(my-awesome-counter) ". ";
+  color: #497d8b;
+  font-weight: 600;
+}
+
+.input-group {
+  flex-wrap: nowrap;
+}
+
+.input-group .input-group-text {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.input-group .form-control {
+  max-width: 5rem;
+  min-width: 5rem;
 }
