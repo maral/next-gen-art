@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
+import utilStyles from 'styles/utils.module.css'
 import Link from 'next/link'
 
 const name = 'Generative Art Attempts'
@@ -32,7 +32,7 @@ export default function Layout({ children, home, title, wide, noLogo }) {
               <a>
                 <Image
                   priority
-                  src="/images/profile.png"
+                  src="/gen-art/images/profile.png"
                   className={utilStyles.borderCircle}
                   height={250}
                   width={250}
